@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %} Product {% endblock %}
+{% block content %}
+
+<style>
+    .burger_detail {
+    text-align: center;
+    margin: -180px auto;
+    }
+</style>
+
+<div style="background-color: #ff8732; height: 150px;">
+
+</div>
+
+        <div class="burger_detail">
+                <img src="{{ product.image.url }}">
+                <h4>{{ product.name }}</h4>
+                <p>{{ product.cal }} Cal.</p>
+                {% if product.status == 'in stock' %}
+                <p style="color: green;">В наличии</p>
+                {% else %}
+                <p style="color: red;">Нет в наличии</p>
+                {% endif %}
+        </div>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+    <h1 style="color: #f5ebdc; background-color: red; height: 150px; display: flex; justify-content: center; align-items: center;">Our Menu</h1>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for category in categories %}
+
+  <div class="col">
+    <div class="card h-100">
+      <img src="{{ category.image.url }}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">
+            <a href="{% url 'list' category.slug %}">{{ category.title }}</a>
+        </h5>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div>
+  </div>
+
+    {% endfor %}
+        </div>
+
+{% endblock %}
