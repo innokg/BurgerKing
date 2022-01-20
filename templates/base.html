@@ -24,6 +24,13 @@
 <nav class="navbar navbar-light" style="background-color: #f5ebdc;">
   <div class="container-fluid">
     <a href="{% url 'index' %}" class="navbar-brand">Menu</a>
+
+      <a href="{% url 'cart_detail' %}">
+       <img style="width: 60px; height: auto;" src="{% static 'carts.png' %}">
+
+      </a>
+      <a href="{% url 'create' %}" class="navbar-brand">+</a>
+
       <img style="width: 70px; height: auto; margin-left: 360px;" src="{% static 'logo.svg' %}" >
     <form class="d-flex">
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
