@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
-
+{% block title%} Products {%endblock%}
 {% block content %}
 {% load static %}
+
+
+     <div style="display: flex; justify-content: flex-end;">
+         <a href="{% url 'list' slug %}?filter=in+stock">In stock</a>
+     </div>
 
  <div class="container card-group">
     {% for product in products %}
@@ -12,9 +17,12 @@
           <a href="{% url 'detail' product.id %}">{{product.name}}</a>
       </h5>
       <p class="card-text">{{ product.price }}$</p>
+
+      {% if product.status == 'in stock' %}
       <a href="{% url 'cart_add' product.id %}">
       <img style="width: 60px; height: auto;" src="{% static 'shopping-cart.png' %}">
       </a>
+        {% endif %}
 
     </div>
   </div>

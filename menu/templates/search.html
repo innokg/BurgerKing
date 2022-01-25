@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %} Product {% endblock%}
+{% block content %}
+{% load static %}
+
+ <div class="container card-group">
+     {% if not results %}
+     <h1>По запросу "{{ search_word }}" я не нашел ничего зае....л</h1>
+     {% else %}
+     <div style="display: flex; flex-wrap: wrap;">
+    {% for product in results %}
+  <div style="background-color: #f5ebdc; border: none";  class="card">
+    <img style="width: 200px; height: auto; display: flex;" src="{{ product.image.url }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">
+          <a href="{% url 'detail' product.id %}">{{product.name}}</a>
+      </h5>
+      <p class="card-text">{{ product.price }}$</p>
+      <a href="{% url 'cart_add' product.id %}">
+      <img style="width: 60px; height: auto;" src="{% static 'shopping-cart.png' %}">
+      </a>
+
+    </div>
+  </div>
+    {% endfor %}
+         </div>
+     {% endif %}
+ </div>
+
+
+
+
+    {% endblock %}
