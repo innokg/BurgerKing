@@ -5,6 +5,7 @@ from django.views.generic import ListView, DetailView, CreateView, DeleteView, U
 from .forms import CreateProductForm, UpdateProductForm
 from .models import Category, Product
 from .permissions import IsAdminCheckMixin
+from cart.cart import Cart
 
 
 class SearchListView(ListView):
